@@ -1,0 +1,12 @@
+.home-top-wrapper {
+  width: 100%;
+  text-align: center;
+  margin-top: 50px;       /* Push content down from top */
+}
+
+.home-btn {
+  margin-top: 20px;
+  font-size: 18px;
+  padding: 10px 30px;
+  color: white;            /* Ensure text is white */
+}

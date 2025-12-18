@@ -1,0 +1,37 @@
+<div class="container mt-4">
+  <mat-card class="login-card">
+
+    <!-- Centered Image -->
+    <div class="img-container">
+      <img src="../../../assets/logo1.jpg" alt="logo" class="logo">
+    </div>
+
+    <h1 class="text-center">Login Here</h1>
+    {{loginData | json}}
+    <form (ngSubmit)="formSubmit()">
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>User Name</mat-label>
+        <input 
+        [(ngModel)]="loginData.username"
+        name="username"
+        required name="username" matInput placeholder="Enter Here">
+        <mat-hint>Valid user name</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>User Password</mat-label>
+        <input
+        [(ngModel)]="loginData.password"
+        name="password"
+        type="password" required name="password" matInput placeholder="Enter Here">
+      </mat-form-field>
+
+        <div class="text-center mb-2">
+          <button mat-raised-button color="primary" type="submit">Login</button>
+        </div>
+    </form>
+
+   
+
+  </mat-card>
+</div>

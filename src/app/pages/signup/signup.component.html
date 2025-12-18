@@ -1,0 +1,53 @@
+<div class="container d-flex flex-column align-items-center justify-content-center min-vh-100 text-center">
+
+  <mat-card class="signup-card">
+
+    <!-- Logo -->
+    <img src="../../../assets/logo1.jpg" alt="logo" class="logo">
+
+    <!-- Title -->
+    <h1 class="mt-3">REGISTER HERE</h1>
+
+    <!-- Form -->
+    <form (ngSubmit)="formSubmit()" class="mt-4 w-100 d-flex flex-column align-items-center">
+
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>User Name</mat-label>
+        <input required [(ngModel)]="user.username" name="username" matInput placeholder="Enter Here">
+        <mat-hint>user name must be unique!!!</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Password</mat-label>
+        <input required [(ngModel)]="user.password" name="password" type="password" matInput placeholder="Enter Here">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>First Name</mat-label>
+        <input required [(ngModel)]="user.firstName" name="firstName" matInput placeholder="Enter Here">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Last Name</mat-label>
+        <input required [(ngModel)]="user.lastName" name="lastName" matInput placeholder="Enter Here">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Email</mat-label>
+        <input required [(ngModel)]="user.email" name="email" type="email" matInput placeholder="Enter Here">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Phone No</mat-label>
+        <input required [(ngModel)]="user.phone" name="phone" type="number" matInput placeholder="Enter Here">
+      </mat-form-field>
+
+      <div class="mt-3">
+        <button type="submit" mat-raised-button color="primary">Register</button>
+        <button mat-raised-button color="accent" style="margin-left: 20px;">Clear</button>
+      </div>
+
+    </form>
+  </mat-card>
+
+</div>

@@ -1,0 +1,48 @@
+
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+
+mat-toolbar button[mat-icon-button] {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+mat-toolbar button[mat-icon-button]:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+mat-toolbar button[mat-icon-button] mat-icon {
+  color: white !important;
+}
+
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+/* Pure text buttons — no background, no border */
+.plain-btn {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: white !important;
+  padding: 0 12px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Remove hover background */
+.plain-btn:hover {
+  background: transparent !important;
+}
+
+/* Remove focus outline */
+.plain-btn:focus {
+  outline: none !important;
+}
