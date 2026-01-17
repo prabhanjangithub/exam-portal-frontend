@@ -46,3 +46,20 @@ mat-toolbar button[mat-icon-button] mat-icon {
 .plain-btn:focus {
   outline: none !important;
 }
+
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.plain-btn {
+  color: white;
+  text-decoration: none;
+  margin-left: 15px;
+  font-weight: 500;
+}
+
+.user-name {
+  margin-right: 15px;
+  font-weight: 500;
+}

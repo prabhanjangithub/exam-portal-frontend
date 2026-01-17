@@ -10,6 +10,12 @@ export class LoginService {
 
   constructor(private http:HttpClient) { }
 
+  //current user
+  public getCurrentUser()
+  {
+    return this.http.get(`${baseUrl}/current-user`);
+  }
+
   //generate token
   public generateToken(loginData:any)
   {
@@ -17,11 +23,14 @@ export class LoginService {
   }
 
   //login user : set user in localstorage
-  public loginUser(token:any)
-  {
-    localStorage.setItem("token",token);
-    return true;
-  }
+ public loginUser(data:any)
+{
+  localStorage.setItem("token", data.token);
+  localStorage.setItem("role", data.role);
+  this.setUser(data.user)
+  return true;
+}
+
 
   //islogin : user is logged in or not
   public isLoggedIn()
@@ -44,6 +53,7 @@ export class LoginService {
   {
     localStorage.removeItem("token")
     localStorage.removeItem("user")
+    localStorage.removeItem("role")
     return true;
 
   }
@@ -62,27 +72,34 @@ export class LoginService {
   }
 
   //get user
-  public getUser()
-  {
-    let userStr=localStorage.getItem("user");
-    if(userStr!=null)
-    {
+  // public getUser()
+  // {
+  //   let userStr=localStorage.getItem("user");
+  //   if(userStr!=null)
+  //   {
+  //     return JSON.parse(userStr);
+  //   }
+  //   else
+  //   {
+  //     this.logout();
+  //     return null;
+  //   }
+  // }
+
+  public getUser(){
+    const userStr=localStorage.getItem('user');
+    if (userStr && userStr !=='undefined'){
       return JSON.parse(userStr);
     }
-    else
-    {
-      this.logout();
-      return null;
-    }
+    return null;
   }
 
   //get user role
   public getUserRole()
-  {
-    let user=this.getUser()
-    return user.authorities[0].authority;
-    
-  }
+{
+  return localStorage.getItem("role");
+}
+
 
 
 }

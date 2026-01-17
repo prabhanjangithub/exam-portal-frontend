@@ -9,8 +9,34 @@
 
   <span class="spacer"></span>
 
-  <!-- Right side buttons -->
+  <!-- Right side buttons
  <a [routerLink]="'/login'" class="plain-btn">Login</a>
   <a [routerLink]="'/signup'" class="plain-btn">Register</a>
+
+<button mat-button (click)="logout()">
+  Logout
+</button> -->
+
+<!--before login-->
+
+<ng-container *ngIf="!loginService.isLoggedIn()">
+  <a [routerLink]="'/login'" class="plain-btn">Login</a>
+  <a [routerLink]="'/signup'" class="plain-btn">Register</a>
+</ng-container>
+
+<!--after login-->
+
+<ng-container *ngIf="loginService.isLoggedIn()">
+  <span class="user-name">
+    {{loginService.getUser()?.firstName}}
+  </span>
+
+    <a href="javascript:void(0)"
+   class="plain-btn"
+   (click)="logout()">
+  Logout
+</a>
+
+</ng-container>
 
 </mat-toolbar>

@@ -1,0 +1,32 @@
+.profile-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* 👈 CENTER HORIZONTALLY */
+}
+
+.profile-img {
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.profile-table {
+  width: 60%;
+  border-collapse: collapse;
+}
+
+.profile-table td {
+  padding: 15px;
+  border: 1px solid rgb(159, 159, 239);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: center;   /* center horizontally */
+  gap: 16px;                 /* space between buttons */
+  margin-top: 16px;
+}
+

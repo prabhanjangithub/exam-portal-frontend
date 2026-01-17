@@ -15,6 +15,10 @@ import {MatCardModule} from '@angular/material/card'
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { LoginService } from '../../services/login.service';
 
+import { Router, RouterModule } from '@angular/router';
+
+
+
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -26,7 +30,9 @@ import { LoginService } from '../../services/login.service';
     JsonPipe,
     MatSnackBarModule,
     MatCardModule,
-    MatToolbarModule
+    MatToolbarModule,
+    RouterModule 
+   
     ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
@@ -36,7 +42,11 @@ export class LoginComponent {
     username: '',
     password: '',
   };
-  constructor(private snack:MatSnackBar, private login:LoginService){}
+  constructor(
+  private snack: MatSnackBar,
+  private loginService: LoginService,
+  private router: Router
+) {}
 
   formSubmit()
   {
@@ -58,19 +68,34 @@ export class LoginComponent {
       return;
     }
     //request to server to generate tocken
-    this.login.generateToken(this.loginData).subscribe(
-      (data:any)=>{
-        console.log("success");
-        console.log(data)
+   this.loginService.generateToken(this.loginData).subscribe({
+  next: (response: any) => {
+
+    // 1️⃣ Save token & role
+    this.loginService.loginUser(response);
+
+    // 2️⃣ Navigate immediately
+    if (response.role === 'ROLE_ADMIN') {
+      this.router.navigate(['/admin']);
+    } else {
+      this.router.navigate(['/user']);
+    }
+
+    // 3️⃣ Load user in background (optional)
+    this.loginService.getCurrentUser().subscribe({
+      next: (user: any) => {
+        this.loginService.setUser(user);
       },
-      (error)=>{
-        console.log("error !");
-        console.log(error);
+      error: () => {
+        console.error('Failed to load user');
       }
-    )
-
+    });
+  },
+  error: () => {
+    this.snack.open('Invalid username or password', '', { duration: 3000 });
   }
+});
 
-    
 
+}
 }

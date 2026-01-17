@@ -1,0 +1,46 @@
+<mat-card>
+  <h2 class="text-center">YOUR PROFILE DETAILS</h2>
+  {{user | json}}
+
+  <mat-card-content>
+    <div class="profile-wrapper">
+
+      <img 
+        src="assets/sadhguru.jpg"
+        alt="profile image"
+        width="150"
+        class="profile-img"
+      >
+
+      <table class="table profile-table">
+        <tr>
+          <td>Username</td>
+          <td>sadhguru11</td>
+        </tr>
+        <tr>
+          <td>User ID</td>
+          <td>EXAM012</td>
+        </tr>
+        <tr>
+          <td>Phone</td>
+          <td>11111</td>
+        </tr>
+        <tr>
+          <td>Role</td>
+          <td>ADMIN</td>
+        </tr>
+         <tr>
+          <td>Status</td>
+          <td>Active</td>
+        </tr>
+      </table>
+
+    </div>
+  </mat-card-content>
+ 
+  <mat-card-actions class="action-buttons">
+  <button mat-raised-button color="primary">UPDATE</button>
+  <button mat-raised-button color="accent">DELETE</button>
+</mat-card-actions>
+
+</mat-card>

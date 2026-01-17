@@ -48,6 +48,18 @@ public user={
   phone:''
 };
 
+clearForm(form:any){
+  form.resetForm();
+  this.user = {
+    username: '',
+    password: '',
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: ''
+  };
+}
+
 formSubmit() {
  if(this.user.username == '' || this.user.username==null){
       this.snack.open('username is required !!!','',{
