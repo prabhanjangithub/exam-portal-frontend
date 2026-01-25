@@ -11,10 +11,16 @@ export class LoginService {
   constructor(private http:HttpClient) { }
 
   //current user
-  public getCurrentUser()
-  {
-    return this.http.get(`${baseUrl}/current-user`);
-  }
+ public getCurrentUser() {
+  return this.http.get(
+    `${baseUrl}/user/current-user`,
+    {
+      headers: {
+        Authorization: 'Bearer ' + this.getToken()
+      }
+    }
+  );
+}
 
   //generate token
   public generateToken(loginData:any)

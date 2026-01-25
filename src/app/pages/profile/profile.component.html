@@ -1,6 +1,6 @@
 <mat-card>
   <h2 class="text-center">YOUR PROFILE DETAILS</h2>
-  {{user | json}}
+
 
   <mat-card-content>
     <div class="profile-wrapper">
@@ -12,26 +12,28 @@
         class="profile-img"
       >
 
+      <h1 class="mt20">{{user.firstName}}{{user.lastName}}</h1>
+
       <table class="table profile-table">
         <tr>
           <td>Username</td>
-          <td>sadhguru11</td>
+          <td>{{user.username}}</td>
         </tr>
         <tr>
           <td>User ID</td>
-          <td>EXAM012</td>
+          <td>{{user.id}}</td>
         </tr>
         <tr>
           <td>Phone</td>
-          <td>11111</td>
+          <td>{{user.phone}}</td>
         </tr>
         <tr>
           <td>Role</td>
-          <td>ADMIN</td>
+          <td>{{user.authorities[0].authority}}</td>
         </tr>
          <tr>
           <td>Status</td>
-          <td>Active</td>
+          <td>{{user.enabled}}</td>
         </tr>
       </table>
 
