@@ -1,0 +1,13 @@
+.desc {
+  font-size: 13px;
+  color: gray;
+}
+
+.mt20{
+  margin-top: 8px;
+}
+
+.add-btn {
+  text-align: center;
+  margin-top: 10px;   /* adjust until you like it */
+}

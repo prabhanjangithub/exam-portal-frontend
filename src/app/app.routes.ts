@@ -8,6 +8,10 @@ import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard
 import { UserDashboardComponent } from './pages/user-dashboard/user-dashboard.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { WelcomeComponent } from './pages/admin-dashboard/welcome/welcome.component';
+import { ViewCategoriesComponent } from './pages/admin-dashboard/view-categories/view-categories.component';
+import { AddCatagoriesComponent } from './pages/admin-dashboard/add-catagories/add-catagories.component';
+import { ViewQuizzesComponent } from './pages/admin-dashboard/view-quizzes/view-quizzes.component';
+
 
 
 
@@ -49,6 +53,20 @@ export const routes: Routes = [
         path:'profile',
         component:ProfileComponent,
       },
+      {
+        path:'categories',
+        component:ViewCategoriesComponent
+      },
+      {
+        path:'add-category',
+        component:AddCatagoriesComponent
+
+      },
+      {
+        path:'quizzes',
+        component:ViewQuizzesComponent
+      }
+     
     ],
   },
 

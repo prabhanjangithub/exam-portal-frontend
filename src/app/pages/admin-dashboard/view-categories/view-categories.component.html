@@ -1,0 +1,31 @@
+<mat-list>
+  <h1>ALL CATEGORIES</h1>
+  <ng-container *ngFor="let c of categories; let last = last">
+
+    <mat-list-item>
+
+      <!-- Left Icon -->
+      <mat-icon matListItemIcon>category</mat-icon>
+
+      <!-- Title -->
+      <div matListItemTitle>{{ c.title }}</div>
+
+      <!-- Description -->
+      <div matListItemLine class="desc">
+        {{ c.description }}
+      </div>
+
+      <!-- Right Side Delete Button -->
+      <button mat-icon-button
+              color="warn"
+              matListItemMeta
+              (click)="deleteCategory(c.cid)">
+        <mat-icon>delete</mat-icon>
+      </button>
+
+    </mat-list-item>
+
+    <mat-divider *ngIf="!last"></mat-divider>
+
+  </ng-container>
+</mat-list>
